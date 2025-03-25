@@ -6,7 +6,42 @@
     <title>My GitHub Page</title>
 </head>
 <body>
-    <h1>Welcome to My GitHub Page</h1>
-    <p>This is my first hosted website on GitHub Pages!</p>
+    <h1>DID YOU KNOW YOUR LIVING SECONDS...,,</h1>
+    <p class="p">Find Out Here</p>
+    <div id="cal">
+        <label style="font-size: 20px;">Enter your Birth Date & Timing</label><br><br>
+        <input type="datetime-local" id="bd"><br><br>
+        <button id="c">Find</button>
+
+    <p id="ls"></p>
+    <h4>Here know also your age</h4>
+    <p id="ly"></p>
+    <p id="lm"></p>
+    </div>
+    
+     <script>
+        document.querySelector("#cal").addEventListener("click",function(){
+                const u = function(){
+                    let birth = document.querySelector("#bd").value,
+                    day = new Date(birth),
+                    time = day.getTime(),
+                    today = new Date(),
+                    timenow = today.getTime(),
+                    value = timenow-time
+                    sec = Math.floor(value/1000),
+                    year = Math.floor(value/(1000*60*60*24*365.25)),
+                    month = Math.floor(value/(1000*60*60*24*30.4375));
+                     
+            let s = function(x,y){
+                document.querySelector(x).innerHTML = y;
+            }
+            s("#ls",sec +"-secounds");
+            s("#ly","you are "+year +"-years old");
+            s("#lm","you are live in "+month +"-months");
+             }  
+             setInterval(u,1000);    
+        })
+     </script>
+     
 </body>
 </html>
